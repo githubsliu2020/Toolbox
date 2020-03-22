@@ -5,8 +5,9 @@
 
 import random
 r = random.randint(1,100)
-
+count = 0
 while True:
+ count = count + 1 #(也可以寫成 count += 1)
  num = input('請猜出1~100隨機出碼的數字')
  num = int(num)
  if num == r:
@@ -16,3 +17,4 @@ while True:
   print('您的數字比答案大')
  elif num < r:
   print('您的數字比答案小')
+ print ('這是你猜的第',count,'次')
