@@ -1,16 +1,27 @@
+#讀取檔案
 products = []
+with open('products.txt','r', encoding='utf-8') as f:# 用utf-8編碼方式讀取檔案
+	for line in f:
+		if '商品,價格' in line:
+			continue #繼續,但跳到下一個迴圈
+		name, price = line.strip().split(',')
+		products.append([name, price])
+print(products)
+
+#讓使用者輸入資料
 while True:
 	name = input('請輸入商品名稱:')
 	if name == 'q': # 逃出迴圈
 		break
 	price = input ('請輸入商品價格')
-	price =int(price) # 將價格資訊轉換成整數資訊
+	price = int(price) # 將價格資訊轉換成整數資訊
 	p = []
 	p.append(name)
 	p.append(price)   #以上三行可簡寫為p = [name, price]
 	products.append(p)
 print(products)  #印出全部的清單資訊
 
+# 印出商品資訊
 for p in products:
 	print(p[0], '的價格是', p[1])  #印出清單中的第一個產品(清單索引1的價格(索引2)
 	print(p[0][1]) #同上
